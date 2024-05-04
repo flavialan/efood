@@ -24,12 +24,10 @@ const ProductCard = ({
   return (
     <>
       <S.Card>
-        <div className="container">
-          <S.CardImg src={productImage} alt={productTitle} />
-          <S.Title>{productTitle}</S.Title>
-          <S.Description>{reduceDescription(productDescription)}</S.Description>
-          <S.Button onClick={() => setShowModal(true)}>Mais detalhes</S.Button>
-        </div>
+        <S.CardImg src={productImage} alt={productTitle} />
+        <S.Title>{productTitle}</S.Title>
+        <S.Description>{reduceDescription(productDescription)}</S.Description>
+        <S.Button onClick={() => setShowModal(true)}>Mais detalhes</S.Button>
       </S.Card>
       <S.Modal className={showModal ? 'visible' : ''}>
         <S.ModalContent>

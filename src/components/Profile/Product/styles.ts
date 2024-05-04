@@ -5,11 +5,11 @@ export const Card = styled.div`
   background-color: ${colors.darkPink};
   color: ${colors.pink};
   padding: 8px;
-
-  .container {
-    max-width: 320px;
-    width: 100%;
-  }
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 export const CardImg = styled.img`
