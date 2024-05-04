@@ -5,16 +5,16 @@ import instagram from '../../assets/images/instagram.png'
 import facebook from '../../assets/images/facebook.png'
 import twitter from '../../assets/images/twitter.png'
 
-import { Footers, SocialMedia, SectionFooter, FooterText } from './styles'
+import * as S from './styles'
 
 const Footer = () => (
-  <Footers>
+  <S.Footers>
     <div className="container">
-      <SectionFooter>
+      <S.SectionFooter>
         <Link to="/">
           <img className="imageLogo" src={logo} alt="EFOOD" />
         </Link>
-        <SocialMedia>
+        <S.SocialMedia>
           <a href="#">
             <img src={instagram} alt="Instagram" />
           </a>
@@ -24,14 +24,14 @@ const Footer = () => (
           <a href="#">
             <img src={twitter} alt="Twitter" />
           </a>
-        </SocialMedia>
-      </SectionFooter>
-      <FooterText>
+        </S.SocialMedia>
+      </S.SectionFooter>
+      <S.FooterText>
         A efood é uma plataforma para divulgação de estabelecimentos, a
         responsabilidade pela entrega, qualidade dos produtos é toda do
         estabelecimento contratado.
-      </FooterText>
+      </S.FooterText>
     </div>
-  </Footers>
+  </S.Footers>
 )
 export default Footer

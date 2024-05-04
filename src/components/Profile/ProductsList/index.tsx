@@ -1,24 +1,33 @@
-import Products from '../../../models/Products'
+import { Restaurants } from '../../../pages/Home'
 import ProductCard from '../Product'
 import { List } from './styles'
 
-export type Props = {
-  products: Products[]
+type Props = {
+  restaurant: Restaurants
 }
 
-const ProductList = ({ products }: Props) => (
-  <div className="container">
-    <List>
-      {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          title={product.title}
-          description={product.description}
-          image={product.image}
-        />
-      ))}
-    </List>
-  </div>
-)
+const ProductList = ({ restaurant }: Props) => {
+  if (!restaurant) {
+    return <h3>Loading...</h3>
+  }
+
+  return (
+    <div className="container">
+      <List>
+        {restaurant.cardapio.map((product) => (
+          <ProductCard
+            key={product.id}
+            productId={product.id}
+            productTitle={product.nome}
+            productDescription={product.descricao}
+            productImage={product.foto}
+            productPrice={product.preco}
+            productServe={product.porcao}
+          />
+        ))}
+      </List>
+    </div>
+  )
+}
 
 export default ProductList

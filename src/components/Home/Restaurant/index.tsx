@@ -1,63 +1,66 @@
 import Tag from '../Tag'
 import star from '../../../assets/images/star.png'
-import {
-  Button,
-  Card,
-  CardInfos,
-  Container,
-  Description,
-  Infos,
-  Logo
-} from './styles'
+import * as S from './styles'
 
 type Props = {
-  title: string
-  description: string
-  type: string
-  image: string
-  points: number
-  extra?: string
+  restaurantTitle: string
+  restaurantDescription: string
+  restaurantType: string
+  restaurantCover: string
+  restaurantPoints: number
+  restaurantHighlihted: boolean
+  restaurantId: number
 }
 
-function TagsRender(type: string, extra: string | undefined) {
-  if (extra) {
+function TagsRender(restaurantType: string, restaurantHighlihted: boolean) {
+  if (restaurantHighlihted === true) {
     return (
       <>
-        <Tag>{extra}</Tag>
-        <Tag>{type}</Tag>
+        <Tag>Destaque da semana</Tag>
+        <Tag>{restaurantType}</Tag>
       </>
     )
   }
-  return <Tag>{type}</Tag>
+  return <Tag>{restaurantType}</Tag>
+}
+
+export const reduceDescription = (description: string) => {
+  if (description.length > 128) {
+    return description.slice(0, 230) + '...'
+  }
+  return description
 }
 
 const RestaurantCard = ({
-  description,
-  image,
-  type,
-  points,
-  title,
-  extra
+  restaurantCover,
+  restaurantDescription,
+  restaurantHighlihted,
+  restaurantId,
+  restaurantPoints,
+  restaurantTitle,
+  restaurantType
 }: Props) => (
-  <Card>
-    <Logo style={{ backgroundImage: `url(${image})` }} />
-    <Infos>{TagsRender(type, extra)}</Infos>
+  <S.Card>
+    <S.Logo src={restaurantCover} alt={restaurantTitle} />
+    <S.Infos>{TagsRender(restaurantType, restaurantHighlihted)}</S.Infos>
     <div className="card">
-      <Container>
-        <CardInfos>
-          <h3>{title}</h3>
+      <S.Container>
+        <S.CardInfos>
+          <h3>{restaurantTitle}</h3>
           <div>
-            <p>{points}</p>
+            <p>{restaurantPoints}</p>
             <img src={star} alt="Star" />
           </div>
-        </CardInfos>
-        <Description>{description}</Description>
-      </Container>
-      <Button to="/Profile">
+        </S.CardInfos>
+        <S.Description>
+          {reduceDescription(restaurantDescription)}
+        </S.Description>
+      </S.Container>
+      <S.Button to={`/profile/${restaurantId}`}>
         <Tag size="big">Saiba mais</Tag>
-      </Button>
+      </S.Button>
     </div>
-  </Card>
+  </S.Card>
 )
 
 export default RestaurantCard

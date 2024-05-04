@@ -1,9 +1,16 @@
-import Restaurants from '../../../models/Restaurants'
+import { Restaurants } from '../../../pages/Home'
 import RestaurantCard from '../Restaurant'
 import { List } from './styles'
 
 export type Props = {
   restaurants: Restaurants[]
+}
+
+export const pricesFormat = (price = 0) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(price)
 }
 
 const RestaurantList = ({ restaurants }: Props) => (
@@ -12,12 +19,13 @@ const RestaurantList = ({ restaurants }: Props) => (
       {restaurants.map((restaurant) => (
         <RestaurantCard
           key={restaurant.id}
-          description={restaurant.description}
-          image={restaurant.image}
-          type={restaurant.type}
-          extra={restaurant.extra}
-          title={restaurant.title}
-          points={restaurant.points}
+          restaurantId={restaurant.id}
+          restaurantDescription={restaurant.descricao}
+          restaurantCover={restaurant.capa}
+          restaurantType={restaurant.tipo}
+          restaurantHighlihted={restaurant.destacado}
+          restaurantTitle={restaurant.titulo}
+          restaurantPoints={restaurant.avaliacao}
         />
       ))}
     </List>

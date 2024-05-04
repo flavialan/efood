@@ -1,13 +1,19 @@
-import italianBanner from '../../../assets/images/italian_banner.png'
+import { Restaurants } from '../../../pages/Home'
 import { FoodType, Image, Title } from './styles'
 
-const ProfileBanner = () => (
-  <Image style={{ backgroundImage: `url(${italianBanner})` }}>
-    <div className="container">
-      <FoodType>Italiana</FoodType>
-      <Title>La Dolce Vita Trattoria</Title>
-    </div>
-  </Image>
-)
+type Props = {
+  restaurant: Restaurants
+}
+
+const ProfileBanner = ({ restaurant }: Props) => {
+  return (
+    <Image style={{ backgroundImage: `url(${restaurant.capa})` }}>
+      <div className="container">
+        <FoodType>{restaurant.tipo}</FoodType>
+        <Title>{restaurant.titulo}</Title>
+      </div>
+    </Image>
+  )
+}
 
 export default ProfileBanner

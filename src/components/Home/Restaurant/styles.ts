@@ -9,6 +9,10 @@ export const Card = styled.div`
   color: ${colors.darkPink};
   font-weight: bold;
   font-size: 18px;
+  width: 100%;
+  border-top: none;
+  display: flex;
+  flex-direction: column;
 
   ${TagContainer} {
     margin-left: 8px;
@@ -19,10 +23,11 @@ export const Card = styled.div`
     border-top: none;
   }
 `
-export const Logo = styled.div`
-  background-repeat: no-repeat;
-  width: 472px;
+export const Logo = styled.img`
+  width: 100%;
   height: 217px;
+  object-fit: cover;
+  margin: 0;
 `
 
 export const Description = styled.p`
