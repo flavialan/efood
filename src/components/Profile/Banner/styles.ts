@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../../styles'
+import { breakpoints, colors } from '../../../styles'
 
 export const Image = styled.div`
   width: 100%;
@@ -12,8 +12,8 @@ export const Image = styled.div`
   line-height: 37.5px;
   position: relative;
 
-  .container {
-    z-index: 1;
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 24px;
   }
 
   &::after {

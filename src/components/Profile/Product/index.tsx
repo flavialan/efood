@@ -1,8 +1,12 @@
 import { useState } from 'react'
+
 import { reduceDescription } from '../../Home/Restaurant'
 import * as S from './styles'
 import { pricesFormat } from '../../Home/RestaurantList'
 import close from '../../../assets/images/close.png'
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../../store/reducers/cart'
+import { Order } from '../../../pages/Home'
 
 type Props = {
   productId: number
@@ -11,16 +15,26 @@ type Props = {
   productImage: string
   productServe: string
   productPrice: number
+  order: Order
 }
 
 const ProductCard = ({
+  productTitle,
   productDescription,
   productImage,
-  productTitle,
   productServe,
-  productPrice
+  productPrice,
+  order
 }: Props) => {
   const [showModal, setShowModal] = useState(false)
+
+  const dispatch = useDispatch()
+  const addToCart = () => {
+    dispatch(add(order))
+    setShowModal(false)
+    dispatch(open())
+  }
+
   return (
     <>
       <S.Card>
@@ -31,12 +45,12 @@ const ProductCard = ({
       </S.Card>
       <S.Modal className={showModal ? 'visible' : ''}>
         <S.ModalContent>
-          <S.ModalImage src={productImage} alt={productTitle} />
+          <S.ModalImage src={productImage} alt={productDescription} />
           <S.ModalContainer>
             <h4>{productTitle}</h4>
             <p>{productDescription}</p>
             <p>Serve: {productServe}</p>
-            <S.Button>
+            <S.Button onClick={addToCart}>
               Adicionar ao carrinho - {pricesFormat(productPrice)}
             </S.Button>
           </S.ModalContainer>

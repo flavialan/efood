@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../../styles'
+import { breakpoints, colors } from '../../../styles'
 
 export const Card = styled.div`
   background-color: ${colors.darkPink};
@@ -83,6 +83,13 @@ export const ModalContent = styled.div`
   header {
     display: inline-flex;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 350px;
+    width: 100%;
+    max-height: 650px;
+    display: block;
+  }
 `
 export const ModalContainer = styled.div`
   max-width: 656px;
@@ -93,6 +100,11 @@ export const ModalContainer = styled.div`
   justify-content: space-around;
   margin-top: 32px;
   margin-bottom: 32px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 80%;
+    margin: 0 auto;
+  }
 
   ${Button} {
     width: 218px;
@@ -119,6 +131,10 @@ export const ModalImage = styled.img`
   margin-left: 32px;
   margin-right: 24px;
   object-fit: cover;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-bottom: 8px;
+  }
 `
 
 export const CloseButton = styled.img`
@@ -127,4 +143,10 @@ export const CloseButton = styled.img`
   width: 100%;
   margin: 8px;
   cursor: pointer;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 `

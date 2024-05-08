@@ -24,10 +24,9 @@ export const Card = styled.div`
   }
 `
 export const Logo = styled.img`
-  width: 100%;
   height: 217px;
-  object-fit: cover;
   margin: 0;
+  object-fit: cover;
 `
 
 export const Description = styled.p`

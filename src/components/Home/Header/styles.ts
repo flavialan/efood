@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../../styles'
+import { breakpoints, colors } from '../../../styles'
 
 export const HeaderImg = styled.header`
   width: 100%;
@@ -15,6 +15,14 @@ export const HeaderImg = styled.header`
     flex-direction: column;
     align-items: center;
     padding: 40px 0;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      max-width: 70%;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+      max-width: 70%;
+    }
   }
 `
 
@@ -23,4 +31,13 @@ export const HeaderText = styled.h2`
   font-size: 36px;
   margin-top: 140px;
   text-align: center;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    margin-top: 100px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 32px;
+    margin-top: 80px;
+  }
 `

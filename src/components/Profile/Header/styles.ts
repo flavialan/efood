@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from '../../../styles'
+import { breakpoints, colors } from '../../../styles'
 
 export const ProfileImg = styled.header`
   width: 100%;
@@ -15,6 +15,14 @@ export const ProfileImg = styled.header`
     align-items: center;
     padding: 40px 0;
     justify-content: space-between;
+
+    &::after {
+      z-index: 0;
+    }
+
+    @media (max-width: ${breakpoints.desktop}) {
+      max-width: 80%;
+    }
   }
 `
 
@@ -23,4 +31,5 @@ export const ProfileText = styled.h2`
   font-size: 18px;
   text-align: center;
   font-weight: 900;
+  cursor: pointer;
 `

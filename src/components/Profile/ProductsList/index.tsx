@@ -23,6 +23,7 @@ const ProductList = ({ restaurant }: Props) => {
             productImage={product.foto}
             productPrice={product.preco}
             productServe={product.porcao}
+            order={product}
           />
         ))}
       </List>
