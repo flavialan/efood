@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { FaShoppingCart } from 'react-icons/fa'
 
 import { open } from '../../../store/reducers/cart'
 import { RootReducer } from '../../../store'
@@ -32,6 +33,9 @@ const ProfileHeader = () => {
         <S.ProfileText onClick={openCart}>
           {order.length} produto(s) no carrinho
         </S.ProfileText>
+        <div className="mobile-cart">
+          <FaShoppingCart size="36px" onClick={openCart} />
+        </div>
       </div>
     </S.ProfileImg>
   )

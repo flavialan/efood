@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import delete_button from '../../assets/images/lixeira.png'
 
 export const Overlay = styled.div`
@@ -31,6 +31,10 @@ export const Sidebar = styled.aside`
   max-width: 360px;
   width: 100%;
   z-index: 1;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 60%;
+  }
 
   .empty-cart {
     font-size: 18px;

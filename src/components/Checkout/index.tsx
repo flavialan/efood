@@ -304,7 +304,6 @@ const Checkout = () => {
                     onBlur={form.handleBlur}
                     className={checkInputHasError('expireMonth') ? 'error' : ''}
                     mask="99"
-                    max={12}
                   />
                 </div>
                 <div>

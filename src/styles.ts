@@ -32,5 +32,6 @@ export const GlobalCss = createGlobalStyle`
     @media(max-width: ${breakpoints.desktop}){
       max-width: 80%;
     }
+
   }
 `

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const PaymentContainer = styled.div`
   &.close-payment {
@@ -13,13 +13,14 @@ export const PaymentContainer = styled.div`
     div {
       display: flex;
       width: 100%;
+      column-gap: 8px;
 
       div {
-        display: block;
-        margin-right: 32px;
+        display: flex;
+        flex-direction: column;
 
         input {
-          max-width: 155px;
+          width: 100%;
         }
       }
     }
@@ -33,17 +34,19 @@ export const DeliveryContainer = styled.div`
     div {
       display: flex;
       width: 100%;
+      column-gap: 8px;
 
       div {
-        display: block;
-        margin-right: 32px;
+        display: flex;
+        flex-direction: column;
 
         input {
-          max-width: 155px;
+          width: 100%;
         }
       }
     }
   }
+}
 
   &.open-payment {
     display: none;

@@ -20,6 +20,15 @@ export const ProfileImg = styled.header`
       z-index: 0;
     }
 
+    .mobile-cart {
+      display: none;
+
+      @media (max-width: ${breakpoints.tablet}) {
+        display: flex;
+        color: ${colors.darkPink};
+      }
+    }
+
     @media (max-width: ${breakpoints.desktop}) {
       max-width: 80%;
     }
@@ -32,4 +41,8 @@ export const ProfileText = styled.h2`
   text-align: center;
   font-weight: 900;
   cursor: pointer;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: none;
+  }
 `

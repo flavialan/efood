@@ -10,14 +10,12 @@ export const List = styled.ul`
   width: 100%;
 
   @media (max-width: ${breakpoints.desktop}) {
+    justify-items: center;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    justify-content: center;
   }
 
   @media (max-width: ${breakpoints.tablet}) {
     grid-template-columns: 1fr;
     gap: 20px;
-    justify-content: center;
   }
 `

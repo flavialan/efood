@@ -9,6 +9,11 @@ export const List = styled.ul`
   margin-top: 80px;
 
   @media (max-width: ${breakpoints.desktop}) {
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
     grid-template-columns: 1fr;
     justify-content: center;
   }
