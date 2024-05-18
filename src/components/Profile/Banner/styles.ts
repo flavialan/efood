@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../../styles'
+import { breakpoints, colors } from '../../../styles'
 
 export const Image = styled.div`
   width: 100%;
@@ -39,4 +39,8 @@ export const FoodType = styled.h4`
 
 export const Title = styled.h3`
   font-weight: 900;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 28px;
+  }
 `

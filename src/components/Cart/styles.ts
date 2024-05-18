@@ -33,7 +33,7 @@ export const Sidebar = styled.aside`
   z-index: 1;
 
   @media (max-width: ${breakpoints.tablet}) {
-    max-width: 60%;
+    max-width: 70%;
   }
 
   .empty-cart {
