@@ -1,7 +1,9 @@
 import { useParams } from 'react-router-dom'
+import Loader from '../../components/Loader'
+
 import ProfileHeader from '../../components/Profile/Header'
 import ProductsList from '../../components/Profile/ProductsList'
-import { Restaurants } from '../Home'
+
 import ProfileBanner from '../../components/Profile/Banner'
 import { useGetProductsQuery } from '../../services/api'
 
@@ -9,13 +11,17 @@ export type Props = {
   restaurant: Restaurants[]
 }
 
-const Profile = () => {
-  const { id } = useParams()
+type RestaurantParams = {
+  id: string
+}
 
-  const { data: restaurantProfile } = useGetProductsQuery(id!)
+const Profile = () => {
+  const { id } = useParams() as RestaurantParams
+
+  const { data: restaurantProfile } = useGetProductsQuery(id)
 
   if (!restaurantProfile) {
-    return <h3>Loading...</h3>
+    return <Loader />
   }
 
   return (

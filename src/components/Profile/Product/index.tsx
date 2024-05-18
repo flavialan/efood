@@ -1,12 +1,13 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import { reduceDescription } from '../../Home/Restaurant'
-import * as S from './styles'
 import { pricesFormat } from '../../Home/RestaurantList'
-import close from '../../../assets/images/close.png'
-import { useDispatch } from 'react-redux'
 import { add, open } from '../../../store/reducers/cart'
-import { Order } from '../../../pages/Home'
+
+import close from '../../../assets/images/close.png'
+
+import * as S from './styles'
 
 type Props = {
   productId: number

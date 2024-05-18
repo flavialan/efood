@@ -1,31 +1,39 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { ProfileImg, ProfileText } from './styles'
-import logo from '../../../assets/images/logo.png'
-import headerImg from '../../../assets/images/header.png'
+
 import { open } from '../../../store/reducers/cart'
 import { RootReducer } from '../../../store'
 
+import logo from '../../../assets/images/logo.png'
+import headerImg from '../../../assets/images/header.png'
+
+import * as S from './styles'
+
 const ProfileHeader = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const { order } = useSelector((state: RootReducer) => state.cart)
+
+  const gotToHome = () => {
+    navigate('/')
+  }
 
   const openCart = () => {
     dispatch(open())
   }
 
   return (
-    <ProfileImg style={{ backgroundImage: `url(${headerImg})` }}>
+    <S.ProfileImg style={{ backgroundImage: `url(${headerImg})` }}>
       <div className="container">
-        <ProfileText>Restaurantes</ProfileText>
+        <S.ProfileText onClick={gotToHome}>Restaurantes</S.ProfileText>
         <Link to="/">
           <img src={logo} alt="EFOOD" />
         </Link>
-        <ProfileText onClick={openCart}>
+        <S.ProfileText onClick={openCart}>
           {order.length} produto(s) no carrinho
-        </ProfileText>
+        </S.ProfileText>
       </div>
-    </ProfileImg>
+    </S.ProfileImg>
   )
 }
 

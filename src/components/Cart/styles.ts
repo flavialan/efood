@@ -31,6 +31,28 @@ export const Sidebar = styled.aside`
   max-width: 360px;
   width: 100%;
   z-index: 1;
+
+  .empty-cart {
+    font-size: 18px;
+    color: ${colors.pink};
+    text-align: center;
+    line-height: 22px;
+  }
+`
+
+export const Cart = styled.div`
+  &.close-cart {
+    display: none;
+  }
+`
+export const CartCheckout = styled.div`
+  display: none;
+
+  &.open-checkout {
+    display: flex;
+    flex-direction: column;
+    color: ${colors.pink};
+  }
 `
 export const CartItem = styled.li`
   display: flex;

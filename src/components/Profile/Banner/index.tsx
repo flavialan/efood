@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux'
-import { Restaurants } from '../../../pages/Home'
-import { FoodType, Image, Title } from './styles'
+
 import { close } from '../../../store/reducers/cart'
+
+import * as S from './styles'
 
 type Props = {
   restaurant: Restaurants
@@ -14,15 +15,15 @@ const ProfileBanner = ({ restaurant }: Props) => {
     dispatch(close())
   }
   return (
-    <Image
+    <S.Image
       style={{ backgroundImage: `url(${restaurant.capa})` }}
       onClick={closeCart}
     >
       <div className="container">
-        <FoodType>{restaurant.tipo}</FoodType>
-        <Title>{restaurant.titulo}</Title>
+        <S.FoodType>{restaurant.tipo}</S.FoodType>
+        <S.Title>{restaurant.titulo}</S.Title>
       </div>
-    </Image>
+    </S.Image>
   )
 }
 
